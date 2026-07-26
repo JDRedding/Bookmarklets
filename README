@@ -3,12 +3,14 @@ Personal bookmarklet toolbox with source, minified builds, metadata catalog, and
 
 bookmarklets/
 │
-├── src/                 # Raw, readable JS source files
+├── 0 src/                 # Raw, readable JS source files
 │   ├── clean-ui.js
 │   ├── darkmode.js
 │   └── autofill.js
 │
-├── dist/                # Minified bookmarklet versions
+├── 1 build
+│
+├── 2 dist/                # Minified bookmarklet versions
 │   ├── clean-ui.min.js
 │   ├── darkmode.min.js
 │   └── autofill.min.js
