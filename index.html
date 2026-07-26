@@ -1,1 +1,71 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Bookmarklets Dashboard</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #f5f5f5;
+      padding: 20px;
+    }
+    h1 {
+      margin-bottom: 10px;
+    }
+    #bookmarklets {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    button {
+      padding: 10px 14px;
+      border: none;
+      background: #333;
+      color: white;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    button:hover {
+      background: #555;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Bookmarklets Dashboard</h1>
+  <p>Click a bookmarklet below to run it on the current page.</p>
+
+  <div id="bookmarklets"></div>
+
+  <script>
+    async function loadCatalog() {
+      const response = await fetch('catalog.json');
+      const catalog = await response.json();
+      buildUI(catalog.bookmarklets);
+    }
+
+    function buildUI(items) {
+      const container = document.getElementById('bookmarklets');
+
+      items.forEach(item => {
+        const btn = document.createElement('button');
+        btn.textContent = item.name;
+        btn.title = item.description || "";
+        btn.onclick = () => runBookmarklet(item.file);
+        container.appendChild(btn);
+      });
+    }
+
+    async function runBookmarklet(file) {
+      const response = await fetch('dist/' + file);
+      const code = await response.text();
+      eval(code);
+    }
+
+    loadCatalog();
+  </script>
+
+</body>
+</html>
