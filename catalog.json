@@ -1,0 +1,9 @@
+{
+  "bookmarklets": [
+    {
+      "name": "Dark Mode",
+      "file": "darkmode.min.js",
+      "description": "Invert page colors"
+    }
+  ]
+}
