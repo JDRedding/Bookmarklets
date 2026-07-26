@@ -1,0 +1,20 @@
+# Bookmarklets
+Personal bookmarklet toolbox with source, minified builds, metadata catalog, and a GitHub Pages dashboard.
+
+bookmarklets/
+│
+├── src/                 # Raw, readable JS source files
+│   ├── clean-ui.js
+│   ├── darkmode.js
+│   └── autofill.js
+│
+├── dist/                # Minified bookmarklet versions
+│   ├── clean-ui.min.js
+│   ├── darkmode.min.js
+│   └── autofill.min.js
+│
+├── catalog.json         # Metadata for dynamic loading
+│
+├── index.html           # Bookmarklet dashboard (GitHub Pages)
+│
+└── README.md            # Documentation
